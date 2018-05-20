@@ -1,0 +1,25 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "javascript practise",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -a localhost -p 8800 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theahmadsharif/javascript-practise.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Ahmad Sharif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theahmadsharif/javascript-practise/issues"
+  },
+  "homepage": "https://github.com/theahmadsharif/javascript-practise#readme",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
