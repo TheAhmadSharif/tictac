@@ -15,7 +15,7 @@
 		.board {
 			display: table;
 			margin: auto;
-			margin-top: 30px;
+			margin-top: 100px;
 		}
 
 		.table {
@@ -25,7 +25,7 @@
 
 		.table tr > td {
 			text-align: center;
-			border: 1px solid #333;
+			border: 6px solid #8C8C8C;
 			width: 120px;
 			height: 120px;
 			vertical-align: middle;
@@ -35,11 +35,12 @@
 
 		.table tr > td {
 			border-top: 0px;
+			font-family: serif;
 		}
 
 		.table tr > td:hover {
 			cursor: pointer;
-			color: #000;
+			color: #333;
 		}
 
 		.table tr:nth-child(3n) > td {
@@ -54,6 +55,9 @@
 			border-left: 0 !important;
 		}
 
+		.table tr > td:hover {
+			background: #EEE;
+		}
 	</style>
 </head>
 <body>
@@ -63,23 +67,25 @@
 				<div class="board">
 					<table class="table" id="boardTable">
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td onclick="doWrite(0)"></td>
+						<td onclick="doWrite(1)"></td>
+						<td onclick="doWrite(2)"></td>
 					</tr>
 
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td onclick="doWrite(3)"></td>
+						<td onclick="doWrite(4)"></td>
+						<td onclick="doWrite(5)"></td>
 					</tr>
 
 
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td onclick="doWrite(6)"></td>
+						<td onclick="doWrite(7)"></td>
+						<td onclick="doWrite(8)"></td>
 					</tr>
+
+					
 				</table>
 				</div>  <!-- End board -->
 			</div>	 <!-- End col 12 -->
@@ -88,7 +94,43 @@
 
 	<script type="text/javascript">
 		var table = document.getElementById("boardTable");
-			tr = table.
+			t = table.getElementsByTagName("tr");
+			d = table.getElementsByTagName("td");
+
+			var count = 0;
+			var xElement = [];
+			var oElement = [];
+
+			function win() {
+				var kase1 = [0,3,6];
+			}
+			function doWrite (i) {
+				console.log(i);
+				if (count < 9 ) {
+					if ( count%2 == 0 ) {
+						document.getElementsByTagName("td")[i].innerHTML = "X";
+						xElement.push(i);
+						var kase1 = [0,3,6];
+						var kompare = JSON.stringify(kase1) == JSON.stringify(xElement)
+
+							if (kompare) {
+								alert('X Win');
+							}
+					}
+
+					else {
+						document.getElementsByTagName("td")[i].innerHTML = "O";
+						oElement.push(i);
+						console.log(oElement);
+
+
+					}
+				}
+				count = count + 1;
+			}
+
+
+
 	</script>
 
 </body>
