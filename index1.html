@@ -45,15 +45,15 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="board" >
-							<canvas id="canvas1"  width="100" height="100" onclick="canvasClicked(1)"></canvas>
-							<canvas id="canvas2"  width="100" height="100" onclick="canvasClicked(2)"></canvas>
-							<canvas id="canvas3"  width="100" height="100" onclick="canvasClicked(3)"></canvas>
-							<canvas id="canvas4"  width="100" height="100" onclick="canvasClicked(4)"></canvas>
+							<canvas id="canvas1"  width="100" height="100" style="border-top: 0; border-left:0" onclick="canvasClicked(1)"></canvas>
+							<canvas id="canvas2"  width="100" height="100" style="border-top: 0;" onclick="canvasClicked(2)"></canvas>
+							<canvas id="canvas3"  width="100" height="100" style="border-top: 0; border-right:0" onclick="canvasClicked(3)"></canvas>
+							<canvas id="canvas4"  width="100" height="100" style="border-left:0" onclick="canvasClicked(4)"></canvas>
 							<canvas id="canvas5"  width="100" height="100" onclick="canvasClicked(5)"></canvas>
-							<canvas id="canvas6"  width="100" height="100" onclick="canvasClicked(6)"></canvas>
-							<canvas id="canvas7"  width="100" height="100" onclick="canvasClicked(7)"></canvas>
-							<canvas id="canvas8"  width="100" height="100" onclick="canvasClicked(8)"></canvas>
-							<canvas id="canvas9"  width="100" height="100" onclick="canvasClicked(9)"></canvas>
+							<canvas id="canvas6"  width="100" height="100" style="border-right:0" onclick="canvasClicked(6)"></canvas>
+							<canvas id="canvas7"  width="100" height="100" style="border-bottom: 0; border-left:0" onclick="canvasClicked(7)"></canvas>
+							<canvas id="canvas8"  width="100" height="100" style="border-bottom: 0;" onclick="canvasClicked(8)"></canvas>
+							<canvas id="canvas9"  width="100" height="100" style="border-bottom: 0; border-right:0" onclick="canvasClicked(9)"></canvas>
 
 
 				</div>  <!-- End board -->
@@ -80,16 +80,20 @@
 		var w;
 		var y;
 
+	
+
+
+
 		window.onload=function(){
 			
 			painted = new Array();
 			content = new Array();
 			winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 
+
 			for(var l = 0; l <= 8; l++){
-			painted[l] = false;
-			content[l]='';
-			console.log(content[l]);
+				painted[l] = false;
+				content[l]='';
 			}
 		}
 
@@ -121,7 +125,10 @@
 				turn++;
 				painted[canvasNumber-1] = true;
 				squaresFilled++;
+
+				
 				checkForWinners(content[canvasNumber-1]);
+
 
 				if(squaresFilled==9){
 					console.log("THE GAME IS OVER!");
@@ -135,13 +142,18 @@
 
 		}
 
-		function checkForWinners(symbol){
+		function checkForWinners(symbol){		
+			console.log(content[5]);
+
+			
 			
 			for(var a = 0; a < winningCombinations.length; a++){
+
+				console.log(typeof content[winningCombinations[0][1]]);
 			if(content[winningCombinations[a][0]]==symbol&&content[winningCombinations[a][1]]==	symbol&&content[winningCombinations[a][2]]==symbol){
-				 console.log(symbol+ " WON!");
+				console.log(symbol+ " WON!");
 				//playAgain();
-			}
+				}
 			}
 
 		}
