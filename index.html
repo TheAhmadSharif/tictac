@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tic Tac Game</title>
+	<title>Tic-tac-toe Game</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script type="text/javascript" src="live.js"></script>
 
 	<style type="text/css">
+		* {
+			border: 0;
+			outline: 0;
+
+		}
 		.container {
 			width: 700px !important;
+			font-family: monospace;
 		}
 
 		.board {
 			display: table;
 			margin: auto;
-			margin-top: 100px;
+			margin-top: 40px;
 		}
 
 		.table {
@@ -25,7 +31,7 @@
 
 		.table tr > td {
 			text-align: center;
-			border: 6px solid #8C8C8C;
+			border: 2px solid #8C8C8C;
 			width: 120px;
 			height: 120px;
 			vertical-align: middle;
@@ -58,13 +64,58 @@
 		.table tr > td:hover {
 			background: #EEE;
 		}
-	</style>
+
+ #gameResult {
+		 font-size: 26px;
+		 text-align: center;
+		 border-top: 0 solid #000;
+		 padding-top: 20px;
+	}
+
+	.resultText {
+		display: block;
+		height: 80px;
+	}
+
+	button {
+    background: transparent;
+    color: #666;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: auto;
+    border: 1px solid #666;
+    width: 100%;
+    font-size: 20px;
+   
+}
+	button:hover {
+		outline: 0;
+		border: 1px solid #000;
+		color: #000;
+	}
+
+	.heading {
+	    text-align: center;
+	    margin-bottom: 30px;
+	    border: 1px solid #666;
+	    color: #666;
+	    font-size: 20px;
+	    padding: 5px 20px;
+}
+
+.buttonBlock {
+	margin-bottom: 30px;
+}
+	
+
+</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="board">
+					<h2 class="heading">Tic-tac-toe Game</h2>
 					<table class="table" id="boardTable">
 					<tr>
 						<td onclick="doWrite(0)"></td>
@@ -87,51 +138,17 @@
 
 					
 				</table>
+					
+					
+					<div class="resultText"><h1 id="gameResult"></h1></div>	
+					<div class="buttonBlock"><button onclick="reload()">Reset</button></div>
+
 				</div>  <!-- End board -->
 			</div>	 <!-- End col 12 -->
 		</div> <!-- End row -->
 	</div> <!-- End Container -->
+	<script type="text/javascript" src="scripts.js"></script>
 
-	<script type="text/javascript">
-		var table = document.getElementById("boardTable");
-			t = table.getElementsByTagName("tr");
-			d = table.getElementsByTagName("td");
-
-			var count = 0;
-			var xElement = [];
-			var oElement = [];
-
-			function win() {
-				var kase1 = [0,3,6];
-			}
-			function doWrite (i) {
-				console.log(i);
-				if (count < 9 ) {
-					if ( count%2 == 0 ) {
-						document.getElementsByTagName("td")[i].innerHTML = "X";
-						xElement.push(i);
-						var kase1 = [0,3,6];
-						var kompare = JSON.stringify(kase1) == JSON.stringify(xElement)
-
-							if (kompare) {
-								alert('X Win');
-							}
-					}
-
-					else {
-						document.getElementsByTagName("td")[i].innerHTML = "O";
-						oElement.push(i);
-						console.log(oElement);
-
-
-					}
-				}
-				count = count + 1;
-			}
-
-
-
-	</script>
 
 </body>
 </html>
