@@ -1,10 +1,10 @@
-# Tic Tac Game
+## Tic-Tac-Toe Game
 - HTML5, CSS3, Vanila Javascript
 
 
-# Contact
+## Contact
 TheAhmadSharif@gmail.com
 
 
-# Date
+### Date
 21 May 2018
